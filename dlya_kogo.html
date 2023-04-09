@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="assets/js/tailwind.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    .inp {
+      text-indent: 20px;
+    }
+    .image {
+      background-image: url("assets/images/carousel.png");
+    }
+  </style>
+  <body>
+    <header class="absolute inset-x-0 bg-[#006EFF] top-0 z-50">
+      <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <div class="flex lg:flex-1">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Your Company</span>
+            <img class="h-8 w-auto" src="assets/images/logo.png" alt="">
+          </a>
+        </div>
+        <div class="flex lg:hidden">
+          <button id="close" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden lg:flex  lg:gap-x-12">
+          <a href="#" class="text-sm font-semibold leading-6 text-white">DOI / CROSSREF</a>
+  
+          <a href="#" class="text-sm font-semibold leading-6 text-white">Журналы на платформе OJS</a>
+  
+          <a href="#" class="text-sm font-semibold leading-6 text-white">Экспертиза сайта</a>
+  
+          <a href="#" class="text-sm font-semibold leading-6 text-white">Контакты</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-white">Поиск</a>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="#" class="text-sm font-semibold leading-6 text-white">Регистрация </a>
+          <a href="#" class="text-sm font-semibold pl-10 leading-6 text-white">вход</a>
+        </div>
+      </nav>
+      <!-- Mobile menu, show/hide based on menu open state. -->
+      <div id="div" class="lg:hidden hidden bg-black " role="dialog" aria-modal="true">
+        <!-- Background backdrop, show/hide based on slide-over state. -->
+        <div class="fixed inset-0  z-50"></div>
+        <div class="fixed  inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div class="flex items-center  justify-between">
+            <a href="#" class="-m-1.5 p-1.5">
+              <span class="sr-only">Your Company</span>
+              <img class="h-8 w-auto bg-[#006EFF]" src="assets/images/logo.png" alt="">
+            </a>
+            <button id="btn" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+              <span class="sr-only">Close menu</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="mt-6 flow-root">
+            <div class="-my-6 divide-y divide-gray-500/10">
+              <div class="space-y-2 py-6">
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">DOI / CROSSREF</a>
+  
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Журналы на платформе OJS</a>
+  
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Экспертиза сайта</a>
+  
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  text-gray-900 hover:bg-gray-50">Контакты</a>
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  text-gray-900 hover:bg-gray-50">Поиск</a>
+              </div>
+              <div class="py-6">
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Регистрация</a>
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">вход</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="w-full h-10 pl-36 bg-[#E1E1E1]">
+      <div class="w-[60%] h-full">
+        <ul
+          class="w-full h-full text-[#004AAB] mt-20 hidden font-semibold flex justify-around items-center"
+        >
+          <li><a href="">Что мы предлагем</a></li>
+          <li><a href="">Для кого</a></li>
+          <li><a href="">ЧТо ДАЁТ</a></li>
+          <li><a href="">Стоимость</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-full mt-10 md:h-14 h-20 bg-[#DEEBF2] flex justify-start md:justify-between">
+      <div class="w-[50%] flex items-center justify-center h-[100%]">
+        <input
+          class="md:w-[50%]  h-8 inp outline-none text-indent-3"
+          type="text"
+          placeholder=" Поиск по ключевым словам"
+        />
+        <button class="w-10 h-8 border bg-white">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <div class=" w-[100%] flex md:flex-row flex-col px-6 flex">
+        <ul class="md:pl-[100px] w-[100%] flex-col md:flex-row items-center  justify-end flex">
+          <li class="px-2">USD 477.73</li>
+          <li class="px-2">EUR 474.19</li>
+        </ul>
+        <ul class="md:w-[50%] w-full md:px-16 px-10 items-center  justify-around flex">
+          <li class="md:px-2 ">KZ</li>
+          <li class="md:px-2 ">RU</li>
+          <li class="md:px-2 ">EN</li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="w-full flex items-center pb-20 px-16 h-[45vh] image bg-blue-500"
+    >
+      <h2 class="text-5xl font-semibold">
+        <span class="text-[#004AAB]">Для </span> кого
+      </h2>
+    </div>
+    <div class="w-full h-[15vh] grid grid-cols-2 gap-4  mt-10 px-6 md:flex md:justify-evenly md:items-center">
+      <button
+        class="bg-[#0059C8] text-[10px] md:text-[18px]  shadow-lg hover:bg-[#0059C8] px-5 text-white py-2"
+      >
+        Для главного редактора
+      </button>
+      <button
+        class="bg-[#0059C8A8] text-[10px] md:text-[18px] shadow-lg hover:bg-[#0059C8] px-5 text-white py-2"
+      >
+        Для работников редакции
+      </button>
+      <button
+        class="bg-[#0059C8A8] text-[10px] md:text-[18px] shadow-lg hover:bg-[#0059C8] px-5 text-white py-2"
+      >
+        Для руководителей и менеджеров
+      </button>
+      <button
+        class="bg-[#0059C8A8] text-[10px] md:text-[18px] shadow-lg hover:bg-[#0059C8] px-5 text-white py-2"
+      >
+        Для рецензента
+      </button>
+      <button
+        class="bg-[#0059C8A8] text-[10px] md:text-[18px] shadow-lg hover:bg-[#0059C8] px-5 text-white py-2"
+      >
+        Для автора
+      </button>
+    </div>
+    <div
+      class="m-auto w-[95%] md:px-20 pl-10 pb-16 pt-5 shadow-xl mt-12 border-t-[6px] border-[#005CD4]"
+    >
+      <h2 class="font-semibold text-[#004AAB] leading-relaxed text-[30px]">
+        Для главного редактора
+      </h2>
+      <ul class="w-[90%] mt-3">
+        <li class="list-disc">
+          Обеспечивает прозрачность редакционного процесса и понимание состояния
+          подготовки выпуска
+        </li>
+        <li class="list-disc">Повышает качество журнала</li>
+        <li class="list-disc">
+          Дает возможность получения статистики по востребованности тематик,
+          цитированию, авторам, рецензентам и др.
+        </li>
+      </ul>
+    </div>
+    <div
+      class="m-auto border rounded shadow mt-24 p-7 w-[90%] md:flex bg-[#DEEBF2]"
+    >
+      <div>
+        <h2 class="font-bold text-[30px]">ПРезентация</h2>
+        <p class="text-[18px]">
+          Ключевая информация о нашей платформе одним файлом. Удобно распечатать
+          или отправить по электронной почте.
+        </p>
+      </div>
+      <button class="bg-[#0059C8] rounded w-[250px] h-10 mt-10 text-white">
+        Скачать презентацию
+      </button>
+    </div>
+    <footer
+      class="w-full mt-[200px] pl-5 h-[55vh] md:flex grid grid-cols-2 gap-2 justify-evenly items-center bg-[#006EFF]"
+    >
+      <div class="w-[150px] h-[10%] flex items-center">
+        <img class="w-full" src="assets/images/logo.png" alt="" />
+      </div>
+      <ul class="md:w-[20%] w-[100%]  text-white">
+        <li><a href="">Главная</a></li>
+        <li><a href="">Что мы предлагаем</a></li>
+        <li><a href="">Для кого</a></li>
+        <li><a href="">Home</a></li>
+      </ul>
+      <ul class="text-white md:w-[20%]">
+        <li><a href="">Стоимость</a></li>
+        <li><a href="">Новости</a></li>
+        <li><a href="">DOI / CROSSREF</a></li>
+        <li><a href="">Home</a></li>
+      </ul>
+      <ul class="text-white md:w-[20%]">
+        <li><a href="">+7 (727) 271 61 99</a></li>
+        <li> <i class="fa-solid fa-phone"></i><a href="">+7 (727) 271 61 95</a></li>
+        <li><a href="">___________@gmail.com</a></li>
+      </ul>
+    </footer>
+    <!-- <div class="w-full h-[100vh]"></div> -->
+  </body>
+<script src="assets/js/script.js"></script>
+
+</html>

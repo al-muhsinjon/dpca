@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="assets/js/tailwind.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    .inp {
+      text-indent: 20px;
+    }
+
+    swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bgimage {
+      background-image: url("assets/images/carousel.png");
+      background-repeat: no-repeat;
+    }
+    .card  {
+      
+      width: 100%;
+      height: 200px;
+    }
+    .card1
+    {
+        background-image: url("assets/images/Rectangle 51.png");
+    }
+    .card2
+    {
+        background-image: url("assets/images/Rectangle 51.png");
+    }
+    .card3
+    {
+        background-image: url("assets/images/Rectangle 51.png");
+    }
+    .card4
+    {
+        background-image: url("assets/images/Rectangle 51.png");
+    }
+  </style>
+
+  <body>
+    <header class="absolute inset-x-0 bg-[#006EFF] top-0 z-50">
+        <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <div class="flex lg:flex-1">
+            <a href="#" class="-m-1.5 p-1.5">
+              <span class="sr-only">Your Company</span>
+              <img class="h-8 w-auto" src="assets/images/logo.png" alt="">
+            </a>
+          </div>
+          <div class="flex lg:hidden">
+            <button id="close" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+              <span class="sr-only">Open main menu</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+          <div class="hidden lg:flex  lg:gap-x-12">
+            <a href="#" class="text-sm font-semibold leading-6 text-white">DOI / CROSSREF</a>
+    
+            <a href="#" class="text-sm font-semibold leading-6 text-white">Журналы на платформе OJS</a>
+    
+            <a href="#" class="text-sm font-semibold leading-6 text-white">Экспертиза сайта</a>
+    
+            <a href="#" class="text-sm font-semibold leading-6 text-white">Контакты</a>
+            <a href="#" class="text-sm font-semibold leading-6 text-white">Поиск</a>
+          </div>
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="#" class="text-sm font-semibold leading-6 text-white">Регистрация </a>
+            <a href="#" class="text-sm font-semibold pl-10 leading-6 text-white">вход</a>
+          </div>
+        </nav>
+        <!-- Mobile menu, show/hide based on menu open state. -->
+        <div id="div" class="lg:hidden hidden bg-black " role="dialog" aria-modal="true">
+          <!-- Background backdrop, show/hide based on slide-over state. -->
+          <div class="fixed inset-0  z-50"></div>
+          <div class="fixed  inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div class="flex items-center  justify-between">
+              <a href="#" class="-m-1.5 p-1.5">
+                <span class="sr-only">Your Company</span>
+                <img class="h-8 w-auto bg-[#006EFF]" src="assets/images/logo.png" alt="">
+              </a>
+              <button id="btn" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                <span class="sr-only">Close menu</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="mt-6 flow-root">
+              <div class="-my-6 divide-y divide-gray-500/10">
+                <div class="space-y-2 py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">DOI / CROSSREF</a>
+    
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Журналы на платформе OJS</a>
+    
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Экспертиза сайта</a>
+    
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  text-gray-900 hover:bg-gray-50">Контакты</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  text-gray-900 hover:bg-gray-50">Поиск</a>
+                </div>
+                <div class="py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Регистрация</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">вход</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    <div class="w-full h-[70px] mt-20 flex items-center px-7 bg-[#A0BCF8]">
+      <ul
+        class="flex w-[10%] pr-10 text-white py-1 ml-3 justify-around border-r items-center"
+      >
+        <li>KZ</li>
+        <li>RU</li>
+        <li>EN</li>
+      </ul>
+      <ul
+        class="md:flex w-[50%] pr-10 text-[#004AAB] hidden font-bold py-1 ml-3 justify-around items-center"
+      >
+        <li class="border-r px-5"><a href="">Что мы предлагем</a></li>
+        <li class="border-r px-5"><a href="">Для кого</a></li>
+        <li class="border-r px-5"><a href="">ЧТо ДАЁТ</a></li>
+        <li class=""><a href="">Стоимость</a></li>
+      </ul>
+      <div class="w-[40%] flex items-center h-[100%]">
+        <input
+          class="w-full h-8 inp outline-none text-indent-3"
+          type="text"
+          placeholder="Поиск по всем журналам на платформе"
+        />
+        <button class="w-10 h-8 border bg-white">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+    <div id="swider" class="w-full h-[460px]  ">
+      <swiper-container
+        class="mySwiper"
+        pagination="true"
+        pagination-clickable="true"
+        navigation="true"
+        space-between="30"
+        centered-slides="true"
+        autoplay-delay="2500"
+        autoplay-disable-on-interaction="false"
+      >
+        <swiper-slide>
+          <div class="w-full h-full flex justify-left items-center bgimage">
+            <div class="w-[500px] text-[35px] ml-20 text-left">
+              <p class="text-black">поддержка</p>
+              <h2 class="text-[#004AAB]">цифровых публикации</h2>
+              <p>по центральной Азии</p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="w-full flex justify-left items-center h-full bgimage">
+            <div class="w-[500px] text-[35px] ml-20 text-left">
+              <p class="text-black">поддержка</p>
+              <h2 class="text-[#004AAB]">цифровых публикации</h2>
+              <p>по центральной Азии</p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="w-full flex justify-left items-center h-full bgimage">
+            <div class="w-[500px] text-[35px] ml-20 text-left">
+              <p class="text-black">поддержка</p>
+              <h2 class="text-[#004AAB]">цифровых публикации</h2>
+              <p>по центральной Азии</p>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="w-full h-full flex justify-left items-center bgimage">
+            <div class="w-[500px] text-[35px] ml-20 text-left">
+              <p class="text-black">поддержка</p>
+              <h2 class="text-[#004AAB]">цифровых публикации</h2>
+              <p>по центральной Азии</p>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+
+    <div class="w-full h-[500px] mt-24 flex justify-evenly items-center">
+      <div
+        class="w-[20%] md:block hidden bg-white border border-gray-200 rounded-lg shadow-xl"
+      >
+        <a href="#">
+          <img
+            class="rounded-t-lg w-full"
+            src="assets/images/Rectangle 51.png"
+            alt=""
+          />
+        </a>
+        <div class="p-5">
+          <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              Noteworthy technology acquisitions 2021
+            </h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-700">
+            Here are the biggest enterprise technology acquisitions of 2021 so
+            far, in reverse chronological order.
+          </p>
+          <a
+            href="#"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Read more
+            <svg
+              aria-hidden="true"
+              class="w-4 h-4 ml-2 -mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div
+        class="w-[20%] md:block hidden bg-white border border-gray-200 rounded-lg shadow-xl"
+      >
+        <a href="#">
+          <img
+            class="rounded-t-lg w-full"
+            src="assets/images/Rectangle 51.png"
+            alt=""
+          />
+        </a>
+        <div class="p-5">
+          <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              Noteworthy technology acquisitions 2021
+            </h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-700">
+            Here are the biggest enterprise technology acquisitions of 2021 so
+            far, in reverse chronological order.
+          </p>
+          <a
+            href="#"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Read more
+            <svg
+              aria-hidden="true"
+              class="w-4 h-4 ml-2 -mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div
+        class="w-[20%] md:block hidden bg-white border border-gray-200 rounded-lg shadow-xl"
+      >
+        <a href="#">
+          <img
+            class="rounded-t-lg w-full"
+            src="assets/images/Rectangle 51.png"
+            alt=""
+          />
+        </a>
+        <div class="p-5">
+          <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              Noteworthy technology acquisitions 2021
+            </h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-700">
+            Here are the biggest enterprise technology acquisitions of 2021 so
+            far, in reverse chronological order.
+          </p>
+          <a
+            href="#"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Read more
+            <svg
+              aria-hidden="true"
+              class="w-4 h-4 ml-2 -mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div
+        class="w-[20%] md:block hidden bg-white border border-gray-200 rounded-lg shadow-xl"
+      >
+        <a href="#">
+          <img
+            class="rounded-t-lg w-full"
+            src="assets/images/Rectangle 51.png"
+            alt=""
+          />
+        </a>
+        <div class="p-5">
+          <a href="#">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+              Noteworthy technology acquisitions 2021
+            </h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-700">
+            Here are the biggest enterprise technology acquisitions of 2021 so
+            far, in reverse chronological order.
+          </p>
+          <a
+            href="#"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Read more
+            <svg
+              aria-hidden="true"
+              class="w-4 h-4 ml-2 -mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="w-full h-[60vh] md:hidden">
+        <swiper-container
+          class="mySwiper"
+          pagination="true"
+          pagination-clickable="true"
+          navigation="true"
+          space-between="30"
+          centered-slides="true"
+          autoplay-delay="2500"
+          autoplay-disable-on-interaction="false"
+        >
+          <swiper-slide>
+            <div class="w-[80%] h-[80%]">
+              <div class="w-full h-full">
+                <div
+                  class="w-full bg-white border border-gray-200 rounded-lg shadow-xl"
+                >
+                  <div
+                    class="rounded-t-lg w-full flex justify-center items-center p-5 card  card4"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Non alias consequatur ad.
+                    </p>
+                  </div>
+
+                  <div class="p-5">
+                    <p class="mb-3 font-normal text-gray-700">
+                      Here are the biggest enterprise technology acquisitions of
+                      2021 so far, in reverse chronological order.
+                    </p>
+                    <a
+                      href="#"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Read more
+                      <svg
+                        aria-hidden="true"
+                        class="w-4 h-4 ml-2 -mr-1"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="w-[80%] h-[80%]">
+              <div class="w-full h-full">
+                <div
+                  class="w-full bg-white border border-gray-200 rounded-lg shadow-xl"
+                >
+                  <div
+                    class="rounded-t-lg w-full flex justify-center items-center p-5 card  card3"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Non alias consequatur ad.
+                    </p>
+                  </div>
+
+                  <div class="p-5">
+                    <p class="mb-3 font-normal text-gray-700">
+                      Here are the biggest enterprise technology acquisitions of
+                      2021 so far, in reverse chronological order.
+                    </p>
+                    <a
+                      href="#"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Read more
+                      <svg
+                        aria-hidden="true"
+                        class="w-4 h-4 ml-2 -mr-1"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="w-[80%] h-[80%]">
+              <div class="w-full h-full">
+                <div
+                  class="w-full bg-white border border-gray-200 rounded-lg shadow-xl"
+                >
+                  <div
+                    class="rounded-t-lg w-full flex justify-center items-center p-5 card  card2"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Non alias consequatur ad.
+                    </p>
+                  </div>
+
+                  <div class="p-5">
+                    <p class="mb-3 font-normal text-gray-700">
+                      Here are the biggest enterprise technology acquisitions of
+                      2021 so far, in reverse chronological order.
+                    </p>
+                    <a
+                      href="#"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Read more
+                      <svg
+                        aria-hidden="true"
+                        class="w-4 h-4 ml-2 -mr-1"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="w-[80%] h-[80%]">
+              <div class="w-full h-full">
+                <div
+                  class="w-full bg-white border border-gray-200 rounded-lg shadow-xl"
+                >
+                  <div
+                    class="rounded-t-lg w-full flex justify-center items-center p-5 card  card1"
+                  >
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Non alias consequatur ad.
+                    </p>
+                  </div>
+
+                  <div class="p-5">
+                    <p class="mb-3 font-normal text-gray-700">
+                      Here are the biggest enterprise technology acquisitions of
+                      2021 so far, in reverse chronological order.
+                    </p>
+                    <a
+                      href="#"
+                      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Read more
+                      <svg
+                        aria-hidden="true"
+                        class="w-4 h-4 ml-2 -mr-1"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+    <div class="w-[95%] h-[400px] m-auto justify-around md:flex items-center">
+      <div
+        class="md:w-[70%] md:py-2 py-8 px-4 w-[100%] mt-10 md:mt-0 rounded-lg border md:h-[180px] bg-[#DEEBF2] shadow"
+      >
+        <h2 class="text-[35px]">ПРезентация</h2>
+        <p class="text-[16px]">
+          Ключевая информация о нашей платформе одним файлом. Удобно распечатать
+          или отправить по электронной почте.
+        </p>
+        <button class="p-1 rounded-lg mt-5  text-white bg-[#0059C8]">
+          Скачать презентацию
+        </button>
+      </div>
+      <div class="md:w-[25%] md:mt-0 mt-10 p-5 md:h-[180px] border rounded-lg bg-[#0059C8] shadow">
+        <span></span>
+        <h2 class="text-white text-[30px]">ПОДАТЬ ЗАЯВКУ</h2>
+        <p class="text-white text-[18px]">на экспертизу сайта</p>
+      </div>
+    </div>
+    <div class="w-full px-7 mt-20 h-[50vh]">
+      <h2 class="text-[30px]">Мы предлагаем следующие сервисы:</h2>
+      <div class="w-full h-[200px] mt-10 grid grid-cols-2 gap-2 md:flex md:items-center md:justify-around">
+        <a href=""><img src="assets/images/brand1.png" alt="" /></a>
+        <a href=""><img src="assets/images/brand2.png" alt="" /></a>
+        <a href=""><img src="assets/images/brand3.png" alt="" /></a>
+        <a href=""><img src="assets/images/brand4.png" alt="" /></a>
+        <a href=""><img src="assets/images/brand5.png" alt="" /></a>
+      </div>
+    </div>
+
+    <div class="w-full h-[80vh]">
+      <h2 class="text-[39px] mt-20 text-center">Новости</h2>
+      <div class="w-full h-full flex items-center justify-around">
+        <div
+          class="md:w-[20%] w-[80%] bg-white border border-gray-200 rounded-lg shadow-xl"
+        >
+          <a href="#">
+            <img
+              class="rounded-t-lg w-full"
+              src="assets/images/Rectangle 51.png"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <p class="mb-2 text-2xl text-gray-900">11 Декабря 2022</p>
+            </a>
+            <p class="mb-3 font-normal text-gray-700">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-blue-800"
+            >
+              Read more
+              <svg
+                aria-hidden="true"
+                class="w-4 h-4 ml-2 -mr-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="w-[20%] md:block hidden bg-white border border-gray-200 rounded-lg shadow-xl"
+        >
+          <a href="#">
+            <img
+              class="rounded-t-lg w-full"
+              src="assets/images/Rectangle 51.png"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <p class="mb-2 text-2xl text-gray-900">11 Декабря 2022</p>
+            </a>
+            <p class="mb-3 font-normal text-gray-700">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-blue-800"
+            >
+              Read more
+              <svg
+                aria-hidden="true"
+                class="w-4 h-4 ml-2 -mr-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="w-[20%] md:block hidden bg-white border border-gray-200 rounded-lg shadow-xl"
+        >
+          <a href="#">
+            <img
+              class="rounded-t-lg w-full"
+              src="assets/images/Rectangle 51.png"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <p class="mb-2 text-2xl text-gray-900">11 Декабря 2022</p>
+            </a>
+            <p class="mb-3 font-normal text-gray-700">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-blue-800"
+            >
+              Read more
+              <svg
+                aria-hidden="true"
+                class="w-4 h-4 ml-2 -mr-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="w-[20%] md:block hidden bg-white border border-gray-200 rounded-lg shadow-xl"
+        >
+          <a href="#">
+            <img
+              class="rounded-t-lg w-full"
+              src="assets/images/Rectangle 51.png"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <p class="mb-2 text-2xl text-gray-900">11 Декабря 2022</p>
+            </a>
+            <p class="mb-3 font-normal text-gray-700">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-blue-800"
+            >
+              Read more
+              <svg
+                aria-hidden="true"
+                class="w-4 h-4 ml-2 -mr-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <button class="p-2 rounded-lg md:ml-[85%] ml-10  text-white bg-[#006EFF]">
+        Все новости >
+      </button>
+    </div>
+
+    <footer
+    class="w-full mt-[200px] pl-5 h-[55vh] md:flex grid grid-cols-2 gap-2 justify-evenly items-center bg-[#006EFF]"
+  >
+    <div class="w-[150px] h-[10%] flex items-center">
+      <img class="w-full" src="assets/images/logo.png" alt="" />
+    </div>
+    <ul class="md:w-[20%] w-[100%]  text-white">
+      <li><a href="">Главная</a></li>
+      <li><a href="">Что мы предлагаем</a></li>
+      <li><a href="">Для кого</a></li>
+      <li><a href="">Home</a></li>
+    </ul>
+    <ul class="text-white md:w-[20%]">
+      <li><a href="">Стоимость</a></li>
+      <li><a href="">Новости</a></li>
+      <li><a href="">DOI / CROSSREF</a></li>
+      <li><a href="">Home</a></li>
+    </ul>
+    <ul class="text-white md:w-[20%]">
+      <li><a href="">+7 (727) 271 61 99</a></li>
+      <li> <i class="fa-solid fa-phone"></i><a href="">+7 (727) 271 61 95</a></li>
+      <li><a href="">___________@gmail.com</a></li>
+    </ul>
+  </footer>
+  </body>
+<script src="assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+</html>
